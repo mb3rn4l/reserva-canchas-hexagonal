@@ -6,16 +6,16 @@ jasypt:
 server:
    port: 8080
    servlet:
-      context-path: /reservas
+      context-path: /reserva-canchas
       session:
          timeout: 21600s
 
 spring:
    datasource:
-      driver-class-name: 
+      driver-class-name: org.h2.Driver
       type: com.zaxxer.hikari.HikariDataSource
-      jdbcUrl: 
-      username: 
-      password: 
+      jdbcUrl: jdbc:h2:mem:~/reservas
+      username: root
+      password:
       hikari:
          poolName: pool
