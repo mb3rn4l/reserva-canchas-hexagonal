@@ -6,6 +6,7 @@ import java.lang.reflect.Modifier;
 import com.ceiba.infraestructura.excepcion.ExcepcionTecnica;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
@@ -27,9 +28,19 @@ public class CustomNamedParameterJdbcTemplate {
 		this.namedParameterJdbcTemplate.update(sql, paramSource,keyHolder,new String[] { "id" });
 		return keyHolder.getKey().longValue();
 	}
+
+	public Long crear(SqlParameterSource paramSource, String sql) {
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		this.namedParameterJdbcTemplate.update(sql, paramSource, keyHolder, new String[]{"id"});
+		return keyHolder.getKey().longValue();
+	}
 	
 	public void actualizar(Object object,String sql) {
 		MapSqlParameterSource paramSource = crearParametros(object);
+		this.namedParameterJdbcTemplate.update(sql, paramSource);
+	}
+
+	public void actualizar(SqlParameterSource paramSource, String sql) {
 		this.namedParameterJdbcTemplate.update(sql, paramSource);
 	}
 	
