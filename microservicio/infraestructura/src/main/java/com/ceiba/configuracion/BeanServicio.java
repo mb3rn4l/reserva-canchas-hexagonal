@@ -1,5 +1,8 @@
 package com.ceiba.configuracion;
 
+import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
+import com.ceiba.reserva.servicio.ServicioCancelarReserva;
+import com.ceiba.reserva.servicio.ServicioCrearReserva;
 import com.ceiba.usuario.puerto.repositorio.RepositorioUsuario;
 import com.ceiba.usuario.servicio.ServicioActualizarUsuario;
 import com.ceiba.usuario.servicio.ServicioCrearUsuario;
@@ -24,6 +27,14 @@ public class BeanServicio {
     public ServicioActualizarUsuario servicioActualizarUsuario(RepositorioUsuario repositorioUsuario) {
         return new ServicioActualizarUsuario(repositorioUsuario);
     }
-	
 
+    @Bean
+    public ServicioCancelarReserva servicioCancelarReserva(RepositorioReserva repositorioReserva){
+        return new ServicioCancelarReserva(repositorioReserva);
+    }
+
+    @Bean
+    public ServicioCrearReserva servicioCrearReserva(RepositorioReserva repositorioReserva){
+        return new ServicioCrearReserva(repositorioReserva);
+    }
 }
