@@ -51,7 +51,7 @@ allprojects {
 	]
 
 	/*project.ext.db = ["mysql:mysql-connector-java:5.1.44"]*/
-	/*project.ext.db = ["com.h2database:h2:1.4.194"] */
+	project.ext.db = ["com.h2database:h2:1.4.194"] 
 
 	project.ext.springbootjdbc = ["org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}"]
 	project.ext.flyway = ["org.flywaydb:flyway-core:5.2.1"]
