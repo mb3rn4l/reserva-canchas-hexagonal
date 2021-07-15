@@ -17,8 +17,8 @@ import org.mockito.Mockito;
 
 public class ServicioCrearReservaTest {
 
-    private double calcularDescuento(int porcentajeDescuento, double valorCancha){
-        return valorCancha * porcentajeDescuento / 100;
+    private double calcularDescuento(double porcentajeDescuento, double valorCancha){
+        return valorCancha * (porcentajeDescuento / 100);
     }
 
     private double calcularValorDePago(double valorCancha, double descuento){

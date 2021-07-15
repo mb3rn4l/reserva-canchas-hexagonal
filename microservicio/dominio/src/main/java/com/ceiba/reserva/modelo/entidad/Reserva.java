@@ -81,12 +81,12 @@ public class Reserva {
 
         TiposDescuento tipoDescuento = TiposDescuento.SIN_DESCUENTO;
 
+        if(this.puedeAplicarDescuentoPorHora())
+            tipoDescuento = TiposDescuento.DESCUENTO_POR_HORA;
+
         //if(this.cliente.puedeReclamarDescuento())
         if(this.puedeAplicarDescuentoCancha())
             tipoDescuento = TiposDescuento.DESCUENTO_POR_CANCHAS;
-
-        if(this.puedeAplicarDescuentoPorHora())
-            tipoDescuento = TiposDescuento.DESCUENTO_POR_HORA;
 
         return tipoDescuento;
     }

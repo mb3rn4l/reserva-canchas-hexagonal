@@ -8,7 +8,7 @@ public enum TiposDescuento implements Descuento{
 
     private final double porcentaje;
 
-    TiposDescuento(int porcentaje) {
+    TiposDescuento(double porcentaje) {
         this.porcentaje = porcentaje;
     }
 
