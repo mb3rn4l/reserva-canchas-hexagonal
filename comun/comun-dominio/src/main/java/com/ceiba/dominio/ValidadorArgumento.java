@@ -39,6 +39,11 @@ public class ValidadorArgumento {
         }
     }
 
+    public static void validarPositivo(String valor, String error) {
+        if (Long.parseLong(valor) < 0)
+            throw new ExcepcionValorInvalido(error);
+    }
+
     public static void validarIgual(Double valor, Double valorEsperado, String mensaje) {
         if (!valor.equals(valorEsperado)) {
             throw new ExcepcionValorInvalido(mensaje);
@@ -58,6 +63,12 @@ public class ValidadorArgumento {
     }
 
     public static void validarMenor(Long numeroInicial, Long numeroFinal, String mensaje) {
+        if (numeroInicial > numeroFinal) {
+            throw new ExcepcionValorInvalido(mensaje);
+        }
+    }
+
+    public static void validarMenor(double numeroInicial, double numeroFinal, String mensaje) {
         if (numeroInicial > numeroFinal) {
             throw new ExcepcionValorInvalido(mensaje);
         }
@@ -94,4 +105,5 @@ public class ValidadorArgumento {
             throw new ExcepcionValorInvalido(mensaje);
         }
     }
+
 }
