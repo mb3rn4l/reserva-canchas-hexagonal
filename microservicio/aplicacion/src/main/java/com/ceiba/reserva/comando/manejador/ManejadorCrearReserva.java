@@ -6,7 +6,6 @@ import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
 import com.ceiba.manejador.ManejadorComandoRespuesta;
 import com.ceiba.reserva.comando.ComandoReserva;
 import com.ceiba.reserva.comando.fabrica.FabricaReserva;
-import com.ceiba.estado.modelo.entidad.Estado;
 import com.ceiba.reserva.modelo.entidad.Reserva;
 import com.ceiba.reserva.servicio.ServicioCrearReserva;
 import org.springframework.stereotype.Component;

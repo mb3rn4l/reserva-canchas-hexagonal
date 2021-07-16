@@ -4,7 +4,6 @@ import com.ceiba.cancha.modelo.entidad.Cancha;
 import com.ceiba.cancha.puerto.repositorio.RepositorioCancha;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
-import com.ceiba.reserva.adaptador.repositorio.MapeoEntidadReserva;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;

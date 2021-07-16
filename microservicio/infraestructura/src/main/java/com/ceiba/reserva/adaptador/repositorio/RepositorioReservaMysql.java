@@ -10,11 +10,15 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Repository
 public class RepositorioReservaMysql implements RepositorioReserva {
 
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
+    private static final String REGISTRO_NO_ENCONTRADO = "Registro no encontrado.";
+    private static final Logger LOGGER = Logger.getLogger(RepositorioReservaMysql.class.getName());
 
     @SqlStatement(namespace="reserva", value="crear")
     private static String sqlCrear;
@@ -54,15 +58,14 @@ public class RepositorioReservaMysql implements RepositorioReserva {
     public Long crear(Reserva reserva) {
         SqlParameterSource parameterSource = this.obtenerParametrosReserva(reserva);
         return this.customNamedParameterJdbcTemplate.crear(parameterSource, sqlCrear);
-        //return this.customNamedParameterJdbcTemplate.crear(reserva, sqlCrear);
     }
 
     @Override
     public void actualizar(Reserva reserva) {
         SqlParameterSource parameterSource = this.obtenerParametrosReserva(reserva);
         this.customNamedParameterJdbcTemplate.actualizar(parameterSource, sqlActualizar);
-        //this.customNamedParameterJdbcTemplate.actualizar(reserva, sqlActualizar);
     }
+
 
     @Override
     public void eliminar(Long id) {
@@ -93,6 +96,8 @@ public class RepositorioReservaMysql implements RepositorioReserva {
             return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate()
                     .queryForObject(sqlObtenerPorId, paramSource, new MapeoEntidadReserva());
         } catch (EmptyResultDataAccessException emptyResultDataAccessException) {
+
+            LOGGER.log(Level.FINE, REGISTRO_NO_ENCONTRADO, emptyResultDataAccessException);
             return null;
 
         }

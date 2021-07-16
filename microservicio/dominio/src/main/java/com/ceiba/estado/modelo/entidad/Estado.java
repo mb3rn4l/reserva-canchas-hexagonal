@@ -1,7 +1,5 @@
 package com.ceiba.estado.modelo.entidad;
 
-import com.ceiba.reserva.modelo.entidad.Reserva;
-
 public enum Estado implements EstadoReserva {
     REGISTRADA{
         @Override

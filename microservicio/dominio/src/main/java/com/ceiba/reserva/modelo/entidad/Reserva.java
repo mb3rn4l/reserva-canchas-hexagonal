@@ -7,7 +7,6 @@ import lombok.Getter;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 
 import static com.ceiba.dominio.ValidadorArgumento.*;
 
@@ -70,10 +69,6 @@ public class Reserva {
     }
 
     private double obtenerValorDeLaCancha(){
-        // primera version
-        // return this.cancha.getTipoCancha().getValorCancha();
-
-        //segunda version
         return this.cancha.obtenerValorDeLaCancha();
     }
 
@@ -84,7 +79,6 @@ public class Reserva {
         if(this.puedeAplicarDescuentoPorHora())
             tipoDescuento = TiposDescuento.DESCUENTO_POR_HORA;
 
-        //if(this.cliente.puedeReclamarDescuento())
         if(this.puedeAplicarDescuentoCancha())
             tipoDescuento = TiposDescuento.DESCUENTO_POR_CANCHAS;
 
@@ -92,10 +86,6 @@ public class Reserva {
     }
 
      private boolean puedeAplicarDescuentoCancha(){
-         // primera version
-         //return this.cliente.getTarjetaDescuento().puedeAplicarDescuento();
-
-         // segunda version
          return this.cliente.puedeReclamarDescuento();
      }
 

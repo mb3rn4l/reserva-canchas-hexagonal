@@ -6,7 +6,6 @@ import com.ceiba.estado.modelo.entidad.Estado;
 import com.ceiba.reserva.comando.ComandoReserva;
 import com.ceiba.reserva.comando.manejador.ManejadorCancelarReserva;
 import com.ceiba.reserva.comando.manejador.ManejadorCrearReserva;
-//import com.ceiba.reserva.comando.manejador.ManejadorEliminarReserva;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

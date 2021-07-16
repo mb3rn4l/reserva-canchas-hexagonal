@@ -1,11 +1,9 @@
 package com.ceiba.cliente.modelo.entidad;
 
-import static com.ceiba.dominio.ValidadorArgumento.*;
-
 import com.ceiba.tarjetadescuento.modelo.entidad.TarjetaDescuento;
 import lombok.Getter;
 
-import java.time.LocalDateTime;
+import static com.ceiba.dominio.ValidadorArgumento.*;
 
 @Getter
 public class Cliente {

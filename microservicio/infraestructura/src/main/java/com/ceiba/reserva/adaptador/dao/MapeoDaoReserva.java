@@ -1,16 +1,11 @@
 package com.ceiba.reserva.adaptador.dao;
 
 import com.ceiba.cancha.modelo.dto.DtoCancha;
-import com.ceiba.cancha.modelo.entidad.Cancha;
 import com.ceiba.cliente.modelo.dto.DtoCliente;
-import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.infraestructura.jdbc.MapperResult;
 import com.ceiba.reserva.modelo.dto.DtoReserva;
-import com.ceiba.reserva.modelo.entidad.Reserva;
 import com.ceiba.tarjetadescuento.modelo.dto.DtoTarjetaDescuento;
-import com.ceiba.tarjetadescuento.modelo.entidad.TarjetaDescuento;
 import com.ceiba.tipocancha.modelo.dto.DtoTipoCancha;
-import com.ceiba.tipocancha.modelo.entidad.TipoCancha;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

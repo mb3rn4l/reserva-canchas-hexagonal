@@ -1,11 +1,8 @@
 package com.ceiba.cliente.modelo.dto;
 
 import com.ceiba.tarjetadescuento.modelo.dto.DtoTarjetaDescuento;
-import com.ceiba.tarjetadescuento.modelo.entidad.TarjetaDescuento;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-
-import java.time.LocalDateTime;
 
 @Getter
 @AllArgsConstructor

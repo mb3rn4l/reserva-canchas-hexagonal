@@ -3,13 +3,12 @@ package com.ceiba.reserva.adaptador.repositorio;
 
 import com.ceiba.cancha.modelo.entidad.Cancha;
 import com.ceiba.cliente.modelo.entidad.Cliente;
-import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
 import com.ceiba.infraestructura.jdbc.MapperResult;
-import com.ceiba.estado.modelo.entidad.Estado;
 import com.ceiba.reserva.modelo.entidad.Reserva;
 import com.ceiba.tarjetadescuento.modelo.entidad.TarjetaDescuento;
 import com.ceiba.tipocancha.modelo.entidad.TipoCancha;
 import org.springframework.jdbc.core.RowMapper;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;

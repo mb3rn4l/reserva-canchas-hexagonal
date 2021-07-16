@@ -2,7 +2,8 @@ package com.ceiba.tipocancha.modelo.entidad;
 
 import lombok.Getter;
 
-import static com.ceiba.dominio.ValidadorArgumento.*;
+import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
+import static com.ceiba.dominio.ValidadorArgumento.validarPositivo;
 
 @Getter
 public class TipoCancha {

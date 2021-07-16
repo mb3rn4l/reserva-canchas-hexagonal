@@ -5,7 +5,7 @@ import com.ceiba.cancha.puerto.repositorio.RepositorioCancha;
 import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
 import com.ceiba.reserva.comando.ComandoReserva;
-import com.ceiba.reserva.modelo.entidad.*;
+import com.ceiba.reserva.modelo.entidad.Reserva;
 import org.springframework.stereotype.Component;
 
 

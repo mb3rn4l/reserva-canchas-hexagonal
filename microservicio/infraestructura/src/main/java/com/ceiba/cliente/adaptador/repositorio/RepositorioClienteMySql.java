@@ -1,8 +1,5 @@
 package com.ceiba.cliente.adaptador.repositorio;
 
-import com.ceiba.cancha.adaptador.repositorio.MapeoEntidadCancha;
-import com.ceiba.cancha.modelo.entidad.Cancha;
-import com.ceiba.cancha.puerto.repositorio.RepositorioCancha;
 import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
