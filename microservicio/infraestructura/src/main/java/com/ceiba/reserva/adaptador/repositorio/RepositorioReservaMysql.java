@@ -20,19 +20,19 @@ public class RepositorioReservaMysql implements RepositorioReserva {
     private static final String REGISTRO_NO_ENCONTRADO = "Registro no encontrado.";
     private static final Logger LOGGER = Logger.getLogger(RepositorioReservaMysql.class.getName());
 
-    @SqlStatement(namespace="reserva", value="crear")
+    @SqlStatement(namespace = "reserva", value = "crear")
     private static String sqlCrear;
 
-    @SqlStatement(namespace="reserva", value="actualizar")
+    @SqlStatement(namespace = "reserva", value = "actualizar")
     private static String sqlActualizar;
 
-    @SqlStatement(namespace="reserva", value="eliminar")
+    @SqlStatement(namespace = "reserva", value = "eliminar")
     private static String sqlEliminar;
 
-    @SqlStatement(namespace="reserva", value="existe")
+    @SqlStatement(namespace = "reserva", value = "existe")
     private static String sqlExiste;
 
-    @SqlStatement(namespace="reserva", value="obtenerPorId")
+    @SqlStatement(namespace = "reserva", value = "obtenerPorId")
     private static String sqlObtenerPorId;
 
     public RepositorioReservaMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
@@ -84,7 +84,7 @@ public class RepositorioReservaMysql implements RepositorioReserva {
         paramSource.addValue("horaFinal", horaFinal);
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().
-                queryForObject(sqlExiste,paramSource, Boolean.class);
+                queryForObject(sqlExiste, paramSource, Boolean.class);
     }
 
     @Override

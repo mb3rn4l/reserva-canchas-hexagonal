@@ -10,11 +10,11 @@ public class ServicioCrearReserva {
 
     private final RepositorioReserva repositorioReserva;
 
-    public ServicioCrearReserva(RepositorioReserva repositorioReserva){
+    public ServicioCrearReserva(RepositorioReserva repositorioReserva) {
         this.repositorioReserva = repositorioReserva;
     }
 
-    public Long ejecutar(Reserva reserva){
+    public Long ejecutar(Reserva reserva) {
         validarDisponibilidad(reserva);
         return this.repositorioReserva.crear(reserva);
     }
@@ -25,7 +25,7 @@ public class ServicioCrearReserva {
                 reserva.getHoraInicial(),
                 reserva.getHoraFinal());
 
-        if(existe) {
+        if (existe) {
             throw new ExcepcionDuplicidad(RESERVA_YA_EXISTE_EN_EL_SISTEMA);
         }
     }

@@ -1,9 +1,6 @@
 package com.ceiba.cancha.servicio.testdatabuilder;
 
 import com.ceiba.cancha.modelo.entidad.Cancha;
-import com.ceiba.cliente.modelo.entidad.Cliente;
-import com.ceiba.tarjedescuento.servicio.testdatabuilder.TarjetaDescuentoTestDataBuilder;
-import com.ceiba.tarjetadescuento.modelo.entidad.TarjetaDescuento;
 import com.ceiba.tipocancha.modelo.entidad.TipoCancha;
 import com.ceiba.tipocancha.servicio.testdatabuilder.TipoCanchaTestDataBuilder;
 

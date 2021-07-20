@@ -33,4 +33,6 @@ LEFT JOIN cancha AS c ON r.id_cancha = c.id
 LEFT JOIN tipo_cancha AS tc ON c.id_tipo_cancha = tc.id
 LEFT JOIN cliente AS cl ON r.id_cliente = cl.id
 LEFT JOIN tarjeta_descuento AS td ON cl.id_tarjeta_descuento = tc.id
+WHERE
+    r.fecha = :fecha
 ;

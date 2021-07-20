@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class FabricaReserva {
 
     public Reserva crear(ComandoReserva comandoReserva, RepositorioCliente repositorioCliente,
-                         RepositorioCancha repositorioCancha){
+                         RepositorioCancha repositorioCancha) {
 
         Cliente cliente = repositorioCliente.obtenerPorId(comandoReserva.getIdCliente());
         Cancha cancha = repositorioCancha.obtenerPorId(comandoReserva.getIdCancha());

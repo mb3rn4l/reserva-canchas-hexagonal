@@ -1,4 +1,5 @@
 package com.ceiba.reserva.modelo.entidad;
+
 import com.ceiba.cancha.modelo.entidad.Cancha;
 import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.descuento.modelo.entidad.TiposDescuento;
@@ -13,10 +14,11 @@ import static com.ceiba.dominio.ValidadorArgumento.*;
 
 @Getter
 public class Reserva {
-    
+
     private static final String USUARIO_OBLIGATORIO = "Debe ingresar un usuario valido";
     private static final String CANCHA_OBLIGATORIA = "Debe ingresar una cancha valida";
     private static final String FECHA_OBLIGATORIA = "Debe ingresar la fecha";
+    private static final String FECHA_MENOR = "La fecha debe ser mayor o igual a hoy";
     private static final String HORA_INICIAL_OBLIGATORIA = "Debe ingresar la hora inicial";
     private static final String ESTADO_OBLIGATORIO = "Debe ingresar el estado";
     private static final String ESTADO_NO_PERMITIDO = "Ingrese un estado valido";
@@ -39,7 +41,7 @@ public class Reserva {
 
 
     public Reserva(Long id, Cliente cliente, Cancha cancha, LocalDate fecha, int horaInicial, String estado,
-                   LocalDateTime fechaCreacion){
+                   LocalDateTime fechaCreacion) {
 
         validarObligatorio(cliente, USUARIO_OBLIGATORIO);
         validarObligatorio(cancha, CANCHA_OBLIGATORIA);
@@ -48,6 +50,8 @@ public class Reserva {
         validarObligatorio(estado, ESTADO_OBLIGATORIO);
         validarMenor(horaInicial, HORA_MAXIMA_RESERVA, HORA_FUERA_DE_RANGO);
         validarMenor(HORA_MINIMA_RESERVA, horaInicial, HORA_FUERA_DE_RANGO);
+        validarMenor(LocalDate.now(), fecha, FECHA_MENOR);
+
         this.estado = validarValido(estado, Estado.class, ESTADO_NO_PERMITIDO);
 
         this.id = id;
@@ -60,7 +64,7 @@ public class Reserva {
         this.fechaCreacion = fechaCreacion;
     }
 
-    private void obtenerInformacionDePago(){
+    private void obtenerInformacionDePago() {
 
         double valorCancha = this.obtenerValorDeLaCancha();
         TiposDescuento tipoDescuento = this.obtenerTipoDescuento();
@@ -68,43 +72,36 @@ public class Reserva {
         this.valorDePago = valorCancha - descuento;
     }
 
-    private double obtenerValorDeLaCancha(){
+    private double obtenerValorDeLaCancha() {
         return this.cancha.obtenerValorDeLaCancha();
     }
 
-    private TiposDescuento obtenerTipoDescuento(){
+    private TiposDescuento obtenerTipoDescuento() {
 
         TiposDescuento tipoDescuento = TiposDescuento.SIN_DESCUENTO;
 
-        if(this.puedeAplicarDescuentoPorHora())
+        if (this.puedeAplicarDescuentoPorHora())
             tipoDescuento = TiposDescuento.DESCUENTO_POR_HORA;
 
-        if(this.puedeAplicarDescuentoCancha())
+        if (this.puedeAplicarDescuentoCancha())
             tipoDescuento = TiposDescuento.DESCUENTO_POR_CANCHAS;
 
         return tipoDescuento;
     }
 
-     private boolean puedeAplicarDescuentoCancha(){
-         return this.cliente.puedeReclamarDescuento();
-     }
+    private boolean puedeAplicarDescuentoCancha() {
+        return this.cliente.puedeReclamarDescuento();
+    }
 
-    private void calcularHoraFinalizacion(){
+    private void calcularHoraFinalizacion() {
         this.horaFinal = this.horaInicial + 1;
     }
 
-    private boolean puedeAplicarDescuentoPorHora(){
+    private boolean puedeAplicarDescuentoPorHora() {
         return this.horaInicial <= HORA_MAXIMA_DESCUENTO_RESERVA;
     }
 
-    public void cancelar(){
-//        SEGUNDA VERSION
-//        if(this.estado == Estado.CANCELADO)
-//            throw new RuntimeException("Reserva ya esta cancelada");
-//
-//        this.estado = Estado.CANCELADO;
-
-//        TERCERA VERSION
+    public void cancelar() {
         this.estado = this.estado.cancelar();
     }
 }

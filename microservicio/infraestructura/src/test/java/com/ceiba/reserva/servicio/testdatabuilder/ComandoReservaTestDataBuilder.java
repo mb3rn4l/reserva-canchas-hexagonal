@@ -20,7 +20,7 @@ public class ComandoReservaTestDataBuilder {
         idUsuario = UUID.randomUUID().getLeastSignificantBits();
         idCancha = UUID.randomUUID().getLeastSignificantBits();
         fecha = LocalDate.now();
-        horaInicial = (int) Math.floor(Math.random()*(22 -16+1)+16);
+        horaInicial = (int) Math.floor(Math.random() * (22 - 16 + 1) + 16);
         fechaCreacion = LocalDateTime.now();
     }
 
@@ -34,17 +34,17 @@ public class ComandoReservaTestDataBuilder {
         return this;
     }
 
-    public ComandoReservaTestDataBuilder conEstado(String estado){
+    public ComandoReservaTestDataBuilder conEstado(String estado) {
         this.estado = estado;
         return this;
     }
-    
-    public ComandoReservaTestDataBuilder conUsuario(Long idUsuario){
+
+    public ComandoReservaTestDataBuilder conUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
         return this;
     }
-    
-    public ComandoReservaTestDataBuilder conCancha(Long idCancha){
+
+    public ComandoReservaTestDataBuilder conCancha(Long idCancha) {
         this.idCancha = idCancha;
         return this;
     }

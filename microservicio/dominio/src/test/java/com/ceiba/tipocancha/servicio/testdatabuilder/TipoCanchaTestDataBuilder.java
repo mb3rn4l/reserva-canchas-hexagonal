@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public class TipoCanchaTestDataBuilder {
 
-    private static final String  TIPO_FUTBOL_5 = "futbol 5";
+    private static final String TIPO_FUTBOL_5 = "futbol 5";
     private static final double VALOR_CANCHA = 80000;
 
     private Long id;
@@ -15,7 +15,7 @@ public class TipoCanchaTestDataBuilder {
 
     public TipoCanchaTestDataBuilder() {
         id = UUID.randomUUID().getLeastSignificantBits();
-        this.tipo =  TIPO_FUTBOL_5;
+        this.tipo = TIPO_FUTBOL_5;
         valorCancha = VALOR_CANCHA;
     }
 

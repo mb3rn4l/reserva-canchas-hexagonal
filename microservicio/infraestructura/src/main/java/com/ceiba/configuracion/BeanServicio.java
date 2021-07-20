@@ -29,12 +29,12 @@ public class BeanServicio {
     }
 
     @Bean
-    public ServicioCancelarReserva servicioCancelarReserva(RepositorioReserva repositorioReserva){
+    public ServicioCancelarReserva servicioCancelarReserva(RepositorioReserva repositorioReserva) {
         return new ServicioCancelarReserva(repositorioReserva);
     }
 
     @Bean
-    public ServicioCrearReserva servicioCrearReserva(RepositorioReserva repositorioReserva){
+    public ServicioCrearReserva servicioCrearReserva(RepositorioReserva repositorioReserva) {
         return new ServicioCrearReserva(repositorioReserva);
     }
 }

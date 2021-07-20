@@ -28,7 +28,7 @@ public class Cancha {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public double obtenerValorDeLaCancha(){
+    public double obtenerValorDeLaCancha() {
         return this.tipoCancha.getValorCancha();
     }
 }

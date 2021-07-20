@@ -42,7 +42,7 @@ public class Cliente {
         this.tarjetaDescuento = tarjetaDescuento;
     }
 
-    public boolean puedeReclamarDescuento(){
+    public boolean puedeReclamarDescuento() {
         return this.tarjetaDescuento.puedeAplicarDescuento();
     }
 }

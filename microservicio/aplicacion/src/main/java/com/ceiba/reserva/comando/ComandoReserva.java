@@ -15,9 +15,9 @@ import java.time.LocalDateTime;
 public class ComandoReserva {
     private Long id;
     private Long idCliente;
-        private Long idCancha;
-        private LocalDate fecha;
-        private int horaInicial;
+    private Long idCancha;
+    private LocalDate fecha;
+    private int horaInicial;
     private String estado;
     private LocalDateTime fechaCreacion;
 }

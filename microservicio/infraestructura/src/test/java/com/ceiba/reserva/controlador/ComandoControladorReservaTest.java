@@ -13,15 +13,14 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @RunWith(SpringRunner.class)
-@ContextConfiguration(classes= ApplicationMock.class)
+@ContextConfiguration(classes = ApplicationMock.class)
 @WebMvcTest(ComandoControladorReserva.class)
 public class ComandoControladorReservaTest {
 
@@ -32,7 +31,7 @@ public class ComandoControladorReservaTest {
     private MockMvc mocMvc;
 
     @Test
-    public void crear() throws Exception{
+    public void crear() throws Exception {
         // arrange
         ComandoReserva comandoReserva = new ComandoReservaTestDataBuilder().conUsuario(1L).conCancha(1L).conHoraInicial(16).build();
 
@@ -44,7 +43,7 @@ public class ComandoControladorReservaTest {
                 .andExpect(content().json("{'valor': 2}"));
     }
 
-    
+
     @Test
     public void cancelar() throws Exception {
         // arrange

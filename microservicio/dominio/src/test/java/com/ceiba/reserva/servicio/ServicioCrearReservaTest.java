@@ -5,7 +5,6 @@ import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.cliente.servicio.testdatabuilder.ClienteTestDataBuilder;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
-import com.ceiba.estado.modelo.entidad.Estado;
 import com.ceiba.reserva.modelo.entidad.Reserva;
 import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
 import com.ceiba.reserva.servicio.testdatabuilder.ReservaTestDataBuilder;
@@ -15,13 +14,15 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import java.time.LocalDate;
+
 public class ServicioCrearReservaTest {
 
-    private double calcularDescuento(double porcentajeDescuento, double valorCancha){
+    private double calcularDescuento(double porcentajeDescuento, double valorCancha) {
         return valorCancha * (porcentajeDescuento / 100);
     }
 
-    private double calcularValorDePago(double valorCancha, double descuento){
+    private double calcularValorDePago(double valorCancha, double descuento) {
         return valorCancha - descuento;
     }
 
@@ -36,10 +37,10 @@ public class ServicioCrearReservaTest {
         // act - assert
         Assert.assertEquals(reserva.getHoraFinal(), horaFinal);
     }
-    
-    
+
+
     @Test
-    public void validarHoraFueraDeRangoDisponible(){
+    public void validarHoraFueraDeRangoDisponible() {
         ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conHoraInicial(11);
 
         // act - assert
@@ -49,7 +50,17 @@ public class ServicioCrearReservaTest {
                 "La reserva debe ser entre las 4 PM y las 10 PM");
     }
 
-    
+    @Test
+    public void fechaMenorALaActual() {
+        ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conFecha(LocalDate.now().minusDays(1));
+
+        // act - assert
+        BasePrueba.assertThrows(
+                () -> reservaTestDataBuilder.build(),
+                ExcepcionValorInvalido.class,
+                "La fecha debe ser mayor o igual a hoy");
+    }
+
     @Test
     public void reservaSinDescuento() {
         // arrange
@@ -65,7 +76,7 @@ public class ServicioCrearReservaTest {
         Assert.assertEquals(reserva.getValorDePago(), valorDePago, 0.0);
     }
 
-    
+
     @Test
     public void reservaConDescuentoPorHora() {
         // arrange
@@ -81,7 +92,7 @@ public class ServicioCrearReservaTest {
         Assert.assertEquals(reserva.getValorDePago(), valorDePago, 0.0);
     }
 
-    
+
     @Test
     public void reservaConDescuentoPorCanchas() {
         // arrange
@@ -97,7 +108,7 @@ public class ServicioCrearReservaTest {
         Assert.assertEquals(reserva.getDescuento(), descuento, 0.0);
         Assert.assertEquals(reserva.getValorDePago(), valorDePago, 0.0);
     }
-   
+
 
     @Test
     public void horarioNoDisponible() {
@@ -120,5 +131,5 @@ public class ServicioCrearReservaTest {
                 ExcepcionDuplicidad.class,
                 "La reserva ya existe en el sistema");
     }
-    
+
 }

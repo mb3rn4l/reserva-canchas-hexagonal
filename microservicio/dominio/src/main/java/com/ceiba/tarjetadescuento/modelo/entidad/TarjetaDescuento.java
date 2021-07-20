@@ -7,7 +7,7 @@ import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
 @Getter
 public class TarjetaDescuento {
-    private static final String  CANTIDAD_OBLIGATORIO = "Debe ingresar la descripción";
+    private static final String CANTIDAD_OBLIGATORIO = "Debe ingresar la descripción";
     private static final String CANTIDAD_MAYOR = "La cantidad de reservas no puede ser mayor a ";
     private static final String CANTIDAD_MENOR = "La cantidad de reservas no puede ser menor a ";
 
@@ -25,15 +25,15 @@ public class TarjetaDescuento {
         this.cantidadReservas = cantidadReservas;
     }
 
-    public void aumentarCantidadReservas(){
-        this.cantidadReservas ++;
+    public void aumentarCantidadReservas() {
+        this.cantidadReservas++;
     }
 
-    public void disminuirCantidadReservas(){
-        this.cantidadReservas --;
+    public void disminuirCantidadReservas() {
+        this.cantidadReservas--;
     }
 
-    public boolean puedeAplicarDescuento(){
+    public boolean puedeAplicarDescuento() {
         return this.cantidadReservas >= CANTIDAD_MAXIMA;
     }
 

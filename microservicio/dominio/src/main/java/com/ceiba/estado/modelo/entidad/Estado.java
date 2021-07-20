@@ -1,17 +1,16 @@
 package com.ceiba.estado.modelo.entidad;
 
 public enum Estado implements EstadoReserva {
-    REGISTRADA{
+    REGISTRADA {
         @Override
         public Estado cancelar() {
             return Estado.CANCELADA;
         }
     },
-    CANCELADA{
+    CANCELADA {
         @Override
         public Estado cancelar() {
             throw new RuntimeException("Reserva ya esta cancelada");
         }
-    }
-    ;
+    };
 }

@@ -15,19 +15,16 @@ import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("/reservas")
-@Api(tags = { "Controlador comando reserva"})
+@Api(tags = {"Controlador comando reserva"})
 public class ComandoControladorReserva {
     private final ManejadorCrearReserva manejadorCrearReserva;
-    // private final ManejadorEliminarReserva manejadorEliminarReserva;
     private final ManejadorCancelarReserva manejadorCancelarReserva;
 
     @Autowired
     public ComandoControladorReserva(ManejadorCrearReserva manejadorCrearReserva,
-//                                     ManejadorEliminarReserva manejadorEliminarReserva,
                                      ManejadorCancelarReserva manejadorCancelarReserva
-                                     ) {
+    ) {
         this.manejadorCrearReserva = manejadorCrearReserva;
-        //this.manejadorEliminarReserva = manejadorEliminarReserva;
         this.manejadorCancelarReserva = manejadorCancelarReserva;
     }
 
@@ -39,7 +36,7 @@ public class ComandoControladorReserva {
         return manejadorCrearReserva.ejecutar(comandoReserva);
     }
 
-    @PatchMapping(value="/cancelar/{id}")
+    @PatchMapping(value = "/cancelar/{id}")
     @ApiOperation("Cancelar Reserva")
     public void cancelar(@PathVariable Long id) {
         manejadorCancelarReserva.ejecutar(id);

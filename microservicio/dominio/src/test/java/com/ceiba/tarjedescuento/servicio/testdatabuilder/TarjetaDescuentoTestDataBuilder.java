@@ -11,7 +11,7 @@ public class TarjetaDescuentoTestDataBuilder {
 
     public TarjetaDescuentoTestDataBuilder() {
         this.id = UUID.randomUUID().getLeastSignificantBits();
-        this.cantidadReservas = (int) Math.floor(Math.random()*(4 +1)+ 0);
+        this.cantidadReservas = (int) Math.floor(Math.random() * (4 + 1) + 0);
     }
 
     public TarjetaDescuentoTestDataBuilder conId(Long id) {

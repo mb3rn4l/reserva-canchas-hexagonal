@@ -28,7 +28,7 @@ public class ReservaTestDataBuilder {
         this.cliente = cliente;
         this.cancha = cancha;
         this.fecha = LocalDate.now();
-        this.horaInicial = (int) Math.floor(Math.random()*(22 - 16 + 1) +16);
+        this.horaInicial = (int) Math.floor(Math.random() * (22 - 16 + 1) + 16);
         this.estado = Estado.REGISTRADA.toString();
         this.fechaCreacion = LocalDateTime.now();
 
@@ -49,8 +49,13 @@ public class ReservaTestDataBuilder {
         return this;
     }
 
-    public ReservaTestDataBuilder conEstado(String estado){
+    public ReservaTestDataBuilder conEstado(String estado) {
         this.estado = estado;
+        return this;
+    }
+
+    public ReservaTestDataBuilder conFecha(LocalDate fecha) {
+        this.fecha = fecha;
         return this;
     }
 

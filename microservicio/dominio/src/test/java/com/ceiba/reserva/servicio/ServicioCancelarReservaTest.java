@@ -4,7 +4,6 @@ import com.ceiba.BasePrueba;
 import com.ceiba.estado.modelo.entidad.Estado;
 import com.ceiba.reserva.modelo.entidad.Reserva;
 import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
-
 import com.ceiba.reserva.servicio.testdatabuilder.ReservaTestDataBuilder;
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,7 +12,7 @@ import org.mockito.Mockito;
 public class ServicioCancelarReservaTest {
 
     @Test
-    public void cancelarReserva(){
+    public void cancelarReserva() {
         // arrange
         Reserva reserva = new ReservaTestDataBuilder().conEstado(Estado.REGISTRADA.toString()).build();
         reserva.cancelar();
@@ -23,7 +22,7 @@ public class ServicioCancelarReservaTest {
     }
 
     @Test
-    public void noSePuedeCancelarReservaYaCancelada(){
+    public void noSePuedeCancelarReservaYaCancelada() {
         Reserva reserva = new ReservaTestDataBuilder().conEstado(Estado.CANCELADA.toString()).build();
 
         // act - assert
