@@ -22,7 +22,8 @@ public class ServicioCancelarReserva {
     public Reserva obtenerReserva(Long idReserva) {
         Reserva reserva = this.repositorioReserva.obtenerPorId(idReserva);
 
-        if (reserva == null) throw new ExcepcionSinDatos(RESERVA_NO_EXISTE_EN_EL_SISTEMA);
+        if (reserva == null)
+            throw new ExcepcionSinDatos(RESERVA_NO_EXISTE_EN_EL_SISTEMA);
 
         return reserva;
     }

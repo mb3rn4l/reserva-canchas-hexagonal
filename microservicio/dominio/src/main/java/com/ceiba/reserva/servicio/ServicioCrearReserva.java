@@ -25,8 +25,8 @@ public class ServicioCrearReserva {
                 reserva.getHoraInicial(),
                 reserva.getHoraFinal());
 
-        if (existe) {
+        if (existe)
             throw new ExcepcionDuplicidad(RESERVA_YA_EXISTE_EN_EL_SISTEMA);
-        }
+
     }
 }
