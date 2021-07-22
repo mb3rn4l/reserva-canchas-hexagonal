@@ -16,8 +16,11 @@ public class ServicioCancelarReservaTest {
     @Test
     public void cancelarReserva() {
         // arrange
-        Reserva reserva = new ReservaTestDataBuilder().conEstado(Estado.REGISTRADA.toString()).build();
-        reserva.cancelar();
+        Reserva reserva = new ReservaTestDataBuilder().conId(2L).conEstado(Estado.REGISTRADA.toString()).build();
+        RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
+        Mockito.when(repositorioReserva.obtenerPorId(Mockito.anyLong())).thenReturn(reserva);
+        ServicioCancelarReserva servicioCancelarReserva = new ServicioCancelarReserva(repositorioReserva);
+        servicioCancelarReserva.ejecutar(2L);
 
         // act - assert
         Assert.assertEquals(Estado.CANCELADA, reserva.getEstado());

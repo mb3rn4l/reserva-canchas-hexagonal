@@ -5,6 +5,7 @@ import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.cliente.servicio.testdatabuilder.ClienteTestDataBuilder;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
+import com.ceiba.estado.modelo.entidad.Estado;
 import com.ceiba.reserva.modelo.entidad.Reserva;
 import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
 import com.ceiba.reserva.servicio.testdatabuilder.ReservaTestDataBuilder;
@@ -130,6 +131,30 @@ public class ServicioCrearReservaTest {
                 () -> servicioCrearReserva.ejecutar(reserva),
                 ExcepcionDuplicidad.class,
                 "La reserva ya existe en el sistema");
+    }
+    
+    @Test
+    public void horarioDisponible() {
+        // arrange
+    	Long id = 2L;
+        Reserva reserva = new ReservaTestDataBuilder().build();
+        RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
+        Mockito.when(
+                repositorioReserva.existe(
+                        Mockito.anyLong(),
+                        Mockito.anyObject(),
+                        Mockito.anyInt(),
+                        Mockito.anyInt())
+        ).thenReturn(false);
+        
+        Mockito.when(repositorioReserva.crear(reserva)).thenReturn(id);
+
+        ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva);
+        
+        Long respuesta = servicioCrearReserva.ejecutar(reserva);
+        
+        // act - assert
+        Assert.assertEquals(id, respuesta);
     }
 
 }
