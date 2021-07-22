@@ -1,6 +1,8 @@
 package com.ceiba.reserva.servicio;
 
 import com.ceiba.BasePrueba;
+import com.ceiba.dominio.excepcion.ExcepcionSinDatos;
+import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.estado.modelo.entidad.Estado;
 import com.ceiba.reserva.modelo.entidad.Reserva;
 import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
@@ -28,7 +30,7 @@ public class ServicioCancelarReservaTest {
         // act - assert
         BasePrueba.assertThrows(
                 () -> reserva.cancelar(),
-                RuntimeException.class,
+                ExcepcionValorInvalido.class,
                 "Reserva ya esta cancelada");
     }
 
@@ -43,7 +45,7 @@ public class ServicioCancelarReservaTest {
         // act - assert
         BasePrueba.assertThrows(
                 () -> servicioCancelarReserva.ejecutar(idReserva),
-                RuntimeException.class,
+                ExcepcionSinDatos.class,
                 "La reserva no existe en el sistema");
     }
 }

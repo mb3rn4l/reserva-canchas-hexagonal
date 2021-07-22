@@ -1,5 +1,7 @@
 package com.ceiba.estado.modelo.entidad;
 
+import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
+
 public enum Estado implements EstadoReserva {
     REGISTRADA {
         @Override
@@ -10,7 +12,7 @@ public enum Estado implements EstadoReserva {
     CANCELADA {
         @Override
         public Estado cancelar() {
-            throw new RuntimeException("Reserva ya esta cancelada");
+            throw new ExcepcionValorInvalido("Reserva ya esta cancelada");
         }
     };
 }
