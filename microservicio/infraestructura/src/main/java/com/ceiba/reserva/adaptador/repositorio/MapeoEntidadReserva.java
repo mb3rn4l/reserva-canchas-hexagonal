@@ -20,8 +20,8 @@ public class MapeoEntidadReserva implements RowMapper<Reserva>, MapperResult {
     public Reserva mapRow(ResultSet resultSet, int rowNum) throws SQLException {
 
         Long idTarjetaDescuento = resultSet.getLong("id_tarjeta_descuento");
-        int cantidad_reservas = resultSet.getInt("cantidad_reservas");
-        TarjetaDescuento tarjetaDescuento = new TarjetaDescuento(idTarjetaDescuento, cantidad_reservas);
+        int cantidadReservas = resultSet.getInt("cantidad_reservas");
+        TarjetaDescuento tarjetaDescuento = new TarjetaDescuento(idTarjetaDescuento, cantidadReservas);
 
         Long idCliente = resultSet.getLong("id_cliente");
         String nombre = resultSet.getString("nombre");
@@ -43,10 +43,7 @@ public class MapeoEntidadReserva implements RowMapper<Reserva>, MapperResult {
         Long id = resultSet.getLong("id");
         LocalDate fecha = extraerLocalDate(resultSet, "fecha_reserva");
         int horaInicial = resultSet.getInt("hora_inicial");
-        // int horaFinal = resultSet.getInt("hora_final");
         String estado = resultSet.getString("estado");
-        // double descuento = resultSet.getDouble("descuento");
-        // double valorDepago = resultSet.getDouble("valor_de_pago");
         LocalDateTime fechaCreacionReserva = extraerLocalDateTime(resultSet, "fc_reserva");
 
         return new Reserva(id, cliente, cancha, fecha, horaInicial, estado, fechaCreacionReserva);
