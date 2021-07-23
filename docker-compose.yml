@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  app-back:
+    build: .
+    #restart: always
+    ports:
+        - "8080:8080"  
+    container_name: adn-back
